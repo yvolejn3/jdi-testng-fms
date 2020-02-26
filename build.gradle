@@ -1,0 +1,45 @@
+plugins {
+    id "io.qameta.allure" version "2.8.1"
+    id 'java'
+}
+
+group = 'com.epam.jdi'
+version = '1.1.1'
+
+description = """JDI Light tests template for TestNG"""
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    expand project.properties
+}
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation group: 'com.epam.jdi', name: 'jdi-light-html', version: '+'
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.13.1'
+    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.2'
+    implementation group: 'org.testng', name: 'testng', version: '7.0.0-beta1'
+
+    implementation group: 'jakarta.xml.bind', name: 'jakarta.xml.bind-api', version: '2.3.2'
+
+}
+
+test {
+    useTestNG()
+    systemProperty 'allure.results.directory', 'build/allure-results'
+}
+
+allure {
+    autoconfigure = true
+    version = '2.4.1'
+}
+
+
