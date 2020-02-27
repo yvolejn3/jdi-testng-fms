@@ -16,28 +16,30 @@ public class States {
         if (!WebPage.getUrl().contains("https://dev.lorus-scm.com/#/"))
             dashboardPage.open();
     }
+
     @Step
     public static void shouldBeLoggedIn() {
         onSite();
-        if (WebPage.getUrl().contains("login"))
+        if (loginPage.isOpened())
             login();
     }
+
     @Step
-    public static void login() {
+    private static void login() {
         loginForm.loginAs(DEFAULT_USER);
     }
+
     @Step
     public static void shouldBeLoggedOut() {
         onSite();
-        if (userName.isDisplayed())
+        if (!loginPage.isOpened())
             logout();
-        if (loginForm.isDisplayed())
-            userIcon.click();
     }
+
     @Step
-    public static void logout() {
-        if (!logout.isDisplayed())
+    private static void logout() {
+        if (!userMenu.isDisplayed())
             userIcon.click();
-        logout.click();
+        userMenu.select(1);
     }
 }

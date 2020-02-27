@@ -14,13 +14,12 @@ public class FmsMenuTests implements TestsInit {
     public void menuTest() {
         States.shouldBeLoggedIn();
         dashboardPage.checkOpened();
-        dashboardPage.shouldBeOpened();
         //leftMenu.select(Service, Dates);
         //datesPage.checkOpened();
         //leftMenu.select(ElementsPacks, HTML5);
         //html5Page.checkOpened();
     }
-    @Test
+   // @Test
     public void customMenuTest() {
         States.shouldBeLoggedIn();
         dashboardPage.shouldBeOpened();
