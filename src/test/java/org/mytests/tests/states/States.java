@@ -4,6 +4,7 @@ import com.epam.jdi.light.elements.composite.WebPage;
 import io.qameta.allure.Step;
 
 import static org.mytests.uiobjects.example.entities.Defaults.DEFAULT_USER;
+import static org.mytests.uiobjects.example.entities.UserMenuData.LOGOUT;
 import static org.mytests.uiobjects.example.site.SiteJdi.*;
 import static org.mytests.uiobjects.example.site.pages.LoginPage.loginForm;
 
@@ -40,6 +41,6 @@ public class States {
     private static void logout() {
         if (!userMenu.isDisplayed())
             userIcon.click();
-        userMenu.select(1);
+        userMenu.select(LOGOUT);
     }
 }
