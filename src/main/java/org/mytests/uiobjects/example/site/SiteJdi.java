@@ -31,7 +31,10 @@ public class SiteJdi {
     @UI(".sidebar-menu li")
     public static JList<MenuItem> menu;
 
-    @UI("n-menu__list item-icon")
-    public static JList<MenuItem> sibebar;
+    @UI("#app .item")
+    public static JList<MenuItem> sidebar;
+
+    @UI(".n-menu span")
+    public static UIElement logoTitle;
 
 }

@@ -43,4 +43,10 @@ public class States {
             userIcon.click();
         userMenu.select(LOGOUT);
     }
+
+    @Step
+    public static void sidebarShouldBeCollapsed(){
+
+    }
+
 }
